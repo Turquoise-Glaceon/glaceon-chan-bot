@@ -11,6 +11,10 @@ TOKEN = 'TOKEN'
 
 CHANNEL_ID = xxx
 
+DRAzzz = ["1","1","2","2","2","2","3","3","3","3","3","4","4","5","SQ","SQ","SQ"]
+DRASQ = ["2v2","2v2","2v2","3v3","3v3","4v4","66","66"]
+DRAf = ["FFA","FFA","FFA","FFA","FFA","FFA","FFA","FFA","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","2v2","3v3","3v3","3v3","3v3","3v3","3v3","3v3","3v3","3v3","3v3","4"]
+DRA4 = ["4v4","4v4","4v4","4v4","6v6"]
 Track = ["none", "MKS", "WP", "SSC", "TR", "MC", "TH", "TM", "SGF", "SA", "DS", "Ed", "MW", "CC", "BDD", "BC", "RR", "rMMM", "rMC", "rCCB", "rTT", "rDDD", "rDP3", "rRRy", "rDKJ", "rWS", "rSL", "rMP", "rYV", "rTTC", "rPPS", "rGV", "rRRd", "dYC", "dEA", "dDD", "dMC", "dWGM", "dRR", "dIIO", "dHC", "dBP", "dCL", "dWW", "dAC", "dNBC", "dRiR", "dSBS", "dBB", "bPP", "bTC", "bCMo", "bCMa", "bTB", "bSR", "bSG", "bNH"]
 rTrack = ["MKS", "WP", "SSC", "TR", "MC", "TH", "TM", "SGF", "SA", "DS", "Ed", "MW", "CC", "BDD", "BC", "RR", "rMMM", "rMC", "rCCB", "rTT", "rDDD", "rDP3", "rRRy", "rDKJ", "rWS", "rSL", "rMP", "rYV", "rTTC", "rPPS", "rGV", "rRRd", "dYC", "dEA", "dDD", "dMC", "dWGM", "dRR", "dIIO", "dHC", "dBP", "dCL", "dWW", "dAC", "dNBC", "dRiR", "dSBS", "dBB", "bPP", "bTC", "bCMo", "bCMa", "bTB", "bSR", "bSG", "bNH"]
 
@@ -55,6 +59,7 @@ async def on_message(message):
     rTpath = os.path.join(os.path.join(os.path.join(rpath1,rpath2),rpath3),rpath4)
     rpathC = os.path.join(rpath1,path4,path5)
     rCF = os.path.isfile(rpathC)
+    pathD = "DRAlounge.py"
     
     if message.author.bot:
         return
@@ -69,7 +74,52 @@ async def on_message(message):
     if message.content == 'みんと':
             await message.channel.send("<@734030898177245195>" + "\n" + "ラウンジやれ")
     if message.content == 'ドラゴン':
-        await message.channel.send("ラウンジ2v2→2v2→2v2→2v2→2v2")
+        zzz = random.choice(DRAzzz)
+        if zzz == "SQ":
+            title = "ラウンジSQ "
+            SQ = random.choice(DRASQ)
+            if SQ == "66":
+                copy = "ラウンジ 66SQ"
+            else:
+                copy = title + SQ
+
+            await message.channel.send(copy)
+        else:
+            title = "ラウンジ"
+            fg = random.choice(DRAf)
+            if fg == "4":
+                fz = randomchoice(DRA4)
+            else:
+                fz = fg
+
+            f = open(pathD, 'w')
+
+            f.write(title + fz)
+
+            f.close()
+
+            for i in range(int(zzz)-1):
+
+                with open(pathD) as f:
+                    data = f.readlines()[0]
+
+                fg = random.choice(DRAf)
+                if fg == "4":
+                    fz = randomchoice(DRA4)
+                else:
+                    fz = fg
+                
+                f = open(pathD, 'w')
+
+                f.write(data + "→" + fz)
+
+                f.close()
+
+            with open(pathD) as f:
+                data = f.readlines()[0]
+
+            await message.channel.send(data)
+
     if message.content == 'たんたんたいむ':
         await message.channel.send("https://www.maruchan.co.jp/products/search/maruchanseimencup_umakaratantanmen.html")
         await message.channel.send("https://www.amazon.co.jp/dp/B09CY8RY5D/ref=cm_sw_r_cp_api_i_7EZPEPRC3R86TG6YD9WB?_encoding=UTF8&psc=1")
