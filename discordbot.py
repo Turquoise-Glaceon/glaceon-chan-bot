@@ -156,7 +156,7 @@ async def on_message(message):
         copy_im = im.copy()
         draw = ImageDraw.Draw(copy_im)
 
-        copy_im.save(copied_image_name, quality=100)
+        copy_im.save(copied_image_name)
 
         if CF:
                 with open(pathC) as f:
@@ -171,7 +171,7 @@ async def on_message(message):
                         copy_im = im.copy()
                         draw = ImageDraw.Draw(copy_im)
 
-                        copy_im.save(copied_image_name, quality=95)
+                        copy_im.save(copied_image_name)
 
         if rCF:
             if message.content != "none":
