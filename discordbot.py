@@ -243,8 +243,6 @@ async def on_message(message):
 
                     copy_im.save(copied_image_name)
                     
-                    #print (line[:len(line)-1])
-                    
                     await message.add_reaction("\N{ballot box with check}")
 
         if rCF and M != "none":
@@ -354,8 +352,7 @@ async def on_message(message):
             data = f.readlines()[0]
             if data == C:
                 print("同じです")
-                """with open(pathC, 'a') as f:
-                    print(Ux,file=f)"""
+                
             else:
                 file_name = os.path.join(path4,data)+".py"
 
@@ -434,9 +431,6 @@ async def on_message(message):
         else:
             zaurusu = danamo
         await message.channel.send(zaurusu)
-        
-    """if Ux == Ux and Cx == Cx:
-        await message.channel.send(mint + "\n" + "ラウンジやれ")"""
 
         
 client.run(TOKEN)
