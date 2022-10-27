@@ -445,13 +445,13 @@ async def on_message(message):
         await message.channel.send(zaurusu)
         
     if message.content[:4] == "g.sq":
-        xMx = xMx.replace("g.lt","").replace("`","")
+        msg = xMx.replace("`","")
 
-        comsg = xMx.count(" MMR)\n")
+        delend = msg[:msg.find("Table:")]
 
-        delgo = xMx[:xMx.find("Table:")]
+        mem = delend[delend.find("\n1."):]
 
-        mem = delgo[delgo.find("\n1."):]
+	comsg = mem.count(" MMR)\n")	
 
         for i in range(1,comsg+1):
             mem = mem.replace(str(i)+". ","")
